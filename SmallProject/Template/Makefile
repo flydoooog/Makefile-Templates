@@ -37,19 +37,19 @@ default: all
 
 # non-phony targets
 $(TARGET): $(OBJ)
-    $(dir_guard)
+	$(dir_guard)
 	$(CC) $(CCFLAG) -o $@ $?
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c*
-    $(dir_guard)
+	$(dir_guard)
 	$(CC) $(CCOBJFLAG) -o $@ $<
 
 $(DBG_PATH)/%.o: $(SRC_PATH)/%.c*
-    $(dir_guard)
+	$(dir_guard)
 	$(CC) $(CCOBJFLAG) $(DBGFLAG) -o $@ $<
 
 $(TARGET_DEBUG): $(OBJ_DEBUG)
-    $(dir_guard)
+	$(dir_guard)
 	$(CC) $(CCFLAG) $(DBGFLAG) $? -o $@
 
 # phony rules
